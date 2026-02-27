@@ -6,149 +6,163 @@
 <title>Maha Raj | Marketing Portfolio</title>
 
 <style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #0f172a;
-    color: #ffffff;
+:root {
+  --bg:#0b0f19;
+  --card:#111827;
+  --txt:#e5e7eb;
+  --muted:#9ca3af;
+  --accent:#8b5cf6;
 }
 
-.container {
-    max-width: 1000px;
-    margin: auto;
-    padding: 20px;
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
+  background:var(--bg);
+  color:var(--txt);
 }
 
-header {
-    text-align: center;
-    padding: 40px 0;
+.wrap{
+  max-width:900px;
+  margin:auto;
+  padding:24px;
 }
 
-header h1 {
-    font-size: 40px;
-    margin-bottom: 10px;
+header{
+  padding:30px 0;
+  text-align:center;
 }
 
-header p {
-    font-size: 18px;
-    color: #cbd5e1;
+h1{
+  margin:0;
+  font-size:40px;
 }
 
-.section {
-    background: #1e293b;
-    margin: 20px 0;
-    padding: 25px;
-    border-radius: 10px;
+.subtitle{
+  color:var(--muted);
+  margin-top:8px;
 }
 
-.section h2 {
-    margin-top: 0;
-    color: #a78bfa;
+.card{
+  background:var(--card);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:14px;
+  padding:20px;
+  margin:18px 0;
 }
 
-.projects {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
+h2{
+  margin-top:0;
+  color:var(--accent);
 }
 
-.project-card {
-    background: #0f172a;
-    padding: 15px;
-    border-radius: 8px;
-    border: 1px solid #334155;
+.projects{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
 }
 
-a.button {
-    display: inline-block;
-    background: #8b5cf6;
-    color: white;
-    padding: 12px 18px;
-    margin-top: 10px;
-    text-decoration: none;
-    border-radius: 6px;
+.project{
+  background:#0b0f19;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:10px;
+  padding:14px;
 }
 
-footer {
-    text-align: center;
-    margin-top: 40px;
-    color: #94a3b8;
+footer{
+  text-align:center;
+  margin-top:30px;
+  color:var(--muted);
+  font-size:13px;
 }
 
-@media(max-width: 700px){
-    .projects {
-        grid-template-columns: 1fr;
-    }
+@media(max-width:700px){
+  .projects{grid-template-columns:1fr;}
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<div class="wrap">
 
 <header>
-    <h1>Maha Raj</h1>
-    <p>Outcome-Driven Marketing Professional | Turning Data into Brand Growth & Engagement</p>
-    <a class="button" href="https://linkedin.com" target="_blank">View LinkedIn</a>
+  <h1>Maha Raj</h1>
+  <div class="subtitle">
+    MBA Marketing Professional | Data-Driven Brand Strategy & Market Growth
+  </div>
 </header>
 
-<div class="section">
-    <h2>About Me</h2>
-    <p>
-    MBA marketing professional focused on brand strategy, market research, and digital growth. 
-    I specialize in transforming data into actionable insights that drive customer engagement, 
-    improve positioning, and deliver measurable business results.
-    </p>
+<div class="card">
+  <h2>About</h2>
+  <p style="color:var(--muted); line-height:1.7;">
+    Marketing professional focused on turning research and performance data into actionable strategy.
+    Experience includes brand positioning, market analysis, and digital marketing optimization.
+    I specialize in building practical, measurable approaches that improve engagement, market share, and business performance.
+  </p>
 </div>
 
-<div class="section">
-    <h2>Projects</h2>
+<div class="card">
+  <h2>Projects</h2>
 
-    <div class="projects">
+  <div class="projects">
 
-        <div class="project-card">
-            <h3>MBA Capstone</h3>
-            <p>Developed brand strategy, market analysis, and stakeholder presentations to support business growth decisions.</p>
-        </div>
-
-        <div class="project-card">
-            <h3>Markstrat Simulation</h3>
-            <p>Led market research and optimized marketing mix decisions to improve market share and profitability.</p>
-        </div>
-
-        <div class="project-card">
-            <h3>International Marketing Project</h3>
-            <p>Conducted cultural, economic, and competitive analysis to support international market entry strategy.</p>
-        </div>
-
-        <div class="project-card">
-            <h3>Digital Marketing Strategy</h3>
-            <p>Designed data-driven campaign frameworks focused on targeting, performance tracking, and optimization.</p>
-        </div>
-
+    <div class="project">
+      <b>MBA Capstone</b>
+      <p style="color:var(--muted);">
+        Developed brand strategy, stakeholder presentations, and research-based recommendations to support organizational growth.
+      </p>
     </div>
+
+    <div class="project">
+      <b>Markstrat Simulation</b>
+      <p style="color:var(--muted);">
+        Conducted market research and optimized marketing mix decisions to improve competitive performance and profitability.
+      </p>
+    </div>
+
+    <div class="project">
+      <b>International Marketing</b>
+      <p style="color:var(--muted);">
+        Performed cultural, economic, and competitive analysis to support international market entry strategy.
+      </p>
+    </div>
+
+    <div class="project">
+      <b>Digital Marketing Framework</b>
+      <p style="color:var(--muted);">
+        Designed KPI-driven campaign structures focused on targeting, testing, and performance optimization.
+      </p>
+    </div>
+
+  </div>
 </div>
 
-<div class="section">
-    <h2>Skills</h2>
-    <p>
-    Brand Strategy • Market Research • Digital Marketing • Competitive Analysis • 
-    Marketing Analytics • Positioning • Campaign Optimization
-    </p>
+<div class="card">
+  <h2>Skills</h2>
+  <p style="color:var(--muted); line-height:1.8;">
+    Brand Strategy • Market Research • Competitive Analysis • Digital Marketing •
+    Campaign Optimization • Marketing Analytics • Positioning • KPI Reporting
+  </p>
 </div>
 
-<div class="section">
-    <h2>Contact</h2>
-    <p>Email: your-email@example.com</p>
-    <p>LinkedIn: linkedin.com/in/yourprofile</p>
+<div class="card">
+  <h2>Contact</h2>
+  <p style="color:var(--muted);">
+    Professional contact information available upon request.
+  </p>
 </div>
 
 <footer>
-    © 2026 Maha Raj | Marketing Portfolio
+  © <span id="year"></span> Maha Raj
 </footer>
 
 </div>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>
