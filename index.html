@@ -1,168 +1,473 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Maha Raj | Marketing Portfolio</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mani Maharaj | Marketing Portfolio</title>
+  <meta name="description" content="Marketing portfolio for Mani Maharaj — brand strategy, market research, and data-driven growth." />
 
-<style>
-:root {
-  --bg:#0b0f19;
-  --card:#111827;
-  --txt:#e5e7eb;
-  --muted:#9ca3af;
-  --accent:#8b5cf6;
-}
+  <style>
+    :root{
+      --bg:#070A12;
+      --panel:#0E1424;
+      --card:rgba(255,255,255,.06);
+      --card2:rgba(255,255,255,.08);
+      --stroke:rgba(255,255,255,.10);
+      --text:#EAF0FF;
+      --muted:rgba(234,240,255,.72);
+      --accent:#8B5CF6;
+      --accent2:#22D3EE;
+      --shadow: 0 18px 60px rgba(0,0,0,.45);
+      --radius: 18px;
+    }
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      background:
+        radial-gradient(900px 500px at 18% 0%, rgba(139,92,246,.22), transparent 60%),
+        radial-gradient(900px 500px at 90% 10%, rgba(34,211,238,.16), transparent 55%),
+        radial-gradient(800px 500px at 50% 110%, rgba(139,92,246,.12), transparent 60%),
+        var(--bg);
+      color:var(--text);
+    }
+    a{ color:inherit; text-decoration:none; }
+    .wrap{ max-width:1100px; margin:0 auto; padding:22px; }
 
-*{box-sizing:border-box}
+    /* Top bar */
+    .topbar{
+      position:sticky; top:0; z-index:20;
+      backdrop-filter: blur(12px);
+      background: linear-gradient(to bottom, rgba(7,10,18,.86), rgba(7,10,18,.55));
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .topbar-inner{
+      max-width:1100px; margin:0 auto; padding:14px 22px;
+      display:flex; align-items:center; justify-content:space-between; gap:14px;
+    }
+    .brand{ display:flex; align-items:center; gap:12px; min-width:200px; }
+    .logo{
+      width:40px; height:40px; border-radius:14px;
+      display:grid; place-items:center;
+      background: linear-gradient(135deg, rgba(139,92,246,.35), rgba(34,211,238,.20));
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      font-weight:800;
+      letter-spacing:.5px;
+    }
+    .brand-title{ display:flex; flex-direction:column; line-height:1.05; }
+    .brand-title b{ font-size:14px; }
+    .brand-title span{ font-size:12px; color:var(--muted); margin-top:4px; }
 
-body{
-  margin:0;
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
-  background:var(--bg);
-  color:var(--txt);
-}
+    .nav{ display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end; }
+    .nav a{
+      font-size:13px;
+      color:var(--muted);
+      padding:9px 10px;
+      border-radius:12px;
+      border:1px solid transparent;
+    }
+    .nav a:hover{
+      color:var(--text);
+      background:rgba(255,255,255,.06);
+      border-color: rgba(255,255,255,.08);
+    }
 
-.wrap{
-  max-width:900px;
-  margin:auto;
-  padding:24px;
-}
+    /* Hero */
+    .hero{
+      margin-top:18px;
+      border-radius:28px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.10);
+      background:
+        linear-gradient(180deg, rgba(14,20,36,.85), rgba(7,10,18,.92)),
+        url("https://source.unsplash.com/JKUTrJ4vK00/1600x900") center/cover no-repeat;
+      box-shadow: var(--shadow);
+    }
+    .hero-inner{
+      padding:46px 22px;
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:18px;
+      align-items:start;
+      max-width:1100px;
+      margin:0 auto;
+    }
+    .badge{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.10);
+      color:var(--muted);
+      font-size:13px;
+    }
+    h1{
+      margin:14px 0 10px;
+      font-size:46px;
+      line-height:1.06;
+      letter-spacing:-.6px;
+    }
+    .lead{
+      margin:0;
+      color:var(--muted);
+      font-size:17px;
+      line-height:1.7;
+      max-width:60ch;
+    }
+    .cta{
+      display:flex; gap:12px; flex-wrap:wrap;
+      margin-top:18px;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.10);
+      font-weight:700;
+      font-size:14px;
+    }
+    .btn.primary{
+      color:#070A12;
+      border-color: transparent;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 18px 45px rgba(139,92,246,.25);
+    }
+    .btn.primary:hover{ filter:brightness(1.05); }
+    .btn.ghost{
+      background:rgba(255,255,255,.06);
+      color:var(--text);
+    }
+    .btn.ghost:hover{ background:rgba(255,255,255,.10); }
 
-header{
-  padding:30px 0;
-  text-align:center;
-}
+    .hero-card{
+      background:rgba(7,10,18,.45);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:22px;
+      padding:16px;
+    }
+    .mini-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+      margin-top:10px;
+    }
+    .mini{
+      padding:12px;
+      border-radius:16px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+    }
+    .mini b{ display:block; font-size:14px; margin-bottom:6px; }
+    .mini span{ color:var(--muted); font-size:12px; line-height:1.35; }
 
-h1{
-  margin:0;
-  font-size:40px;
-}
+    /* Sections */
+    section{ padding:18px 0; }
+    .section-title{
+      display:flex; align-items:flex-end; justify-content:space-between; gap:12px;
+      margin:12px 0;
+    }
+    .section-title h2{ margin:0; font-size:20px; letter-spacing:-.2px; }
+    .section-title p{ margin:0; color:var(--muted); font-size:13px; }
 
-.subtitle{
-  color:var(--muted);
-  margin-top:8px;
-}
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:14px;
+    }
+    .card{
+      grid-column: span 12;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: var(--radius);
+      padding:16px;
+      box-shadow: 0 14px 45px rgba(0,0,0,.25);
+    }
+    .span6{ grid-column: span 6; }
+    .span4{ grid-column: span 4; }
 
-.card{
-  background:var(--card);
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:14px;
-  padding:20px;
-  margin:18px 0;
-}
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      font-size:12px;
+      color:#EDE9FE;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(139,92,246,.28);
+      background: rgba(139,92,246,.14);
+    }
+    .proj-title{ margin:10px 0 6px; font-size:16px; }
+    .muted{ color:var(--muted); line-height:1.65; font-size:14px; margin:0; }
 
-h2{
-  margin-top:0;
-  color:var(--accent);
-}
+    .icon{
+      width:18px; height:18px; display:inline-block;
+      vertical-align:-3px;
+      color: rgba(234,240,255,.88);
+    }
 
-.projects{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:14px;
-}
+    /* Image strip */
+    .strip{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:12px;
+      margin-top:10px;
+    }
+    .shot{
+      grid-column: span 4;
+      border-radius: 18px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.10);
+      min-height:160px;
+      background-size:cover;
+      background-position:center;
+      position:relative;
+    }
+    .shot::after{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(180deg, transparent, rgba(7,10,18,.65));
+    }
+    .shot b{
+      position:absolute; left:12px; bottom:10px;
+      font-size:12px; z-index:2; color: rgba(234,240,255,.92);
+      background: rgba(0,0,0,.25);
+      border:1px solid rgba(255,255,255,.10);
+      padding:6px 8px;
+      border-radius: 999px;
+      backdrop-filter: blur(8px);
+    }
 
-.project{
-  background:#0b0f19;
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:10px;
-  padding:14px;
-}
+    /* Footer */
+    footer{
+      padding:28px 0 12px;
+      color:rgba(234,240,255,.55);
+      font-size:12px;
+      text-align:center;
+    }
 
-footer{
-  text-align:center;
-  margin-top:30px;
-  color:var(--muted);
-  font-size:13px;
-}
-
-@media(max-width:700px){
-  .projects{grid-template-columns:1fr;}
-}
-</style>
+    @media (max-width: 920px){
+      .hero-inner{ grid-template-columns: 1fr; }
+      h1{ font-size:38px; }
+      .span6{ grid-column: span 12; }
+      .span4{ grid-column: span 12; }
+      .shot{ grid-column: span 12; min-height:190px; }
+      .nav{ justify-content:flex-start; }
+    }
+  </style>
 </head>
 
 <body>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="logo">MM</div>
+        <div class="brand-title">
+          <b>Mani Maharaj</b>
+          <span>Marketing • Strategy • Analytics</span>
+        </div>
+      </div>
 
-<div class="wrap">
-
-<header>
-  <h1>Maha Raj</h1>
-  <div class="subtitle">
-    MBA Marketing Professional | Data-Driven Brand Strategy & Market Growth
+      <nav class="nav">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
   </div>
-</header>
 
-<div class="card">
-  <h2>About</h2>
-  <p style="color:var(--muted); line-height:1.7;">
-    Marketing professional focused on turning research and performance data into actionable strategy.
-    Experience includes brand positioning, market analysis, and digital marketing optimization.
-    I specialize in building practical, measurable approaches that improve engagement, market share, and business performance.
-  </p>
-</div>
+  <div class="wrap">
+    <div class="hero">
+      <div class="hero-inner">
+        <div>
+          <div class="badge">
+            <span class="icon">
+              <!-- spark -->
+              <svg viewBox="0 0 24 24" fill="none" class="icon" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2l1.2 5.1L18 9l-4.8 1.9L12 16l-1.2-5.1L6 9l4.8-1.9L12 2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                <path d="M19 14l.7 3 2.3.9-2.3.9-.7 3-.7-3-2.3-.9 2.3-.9.7-3z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            Marketing portfolio • Brand growth through insights
+          </div>
 
-<div class="card">
-  <h2>Projects</h2>
+          <h1>Turning research + data into marketing that performs.</h1>
+          <p class="lead">
+            I focus on brand strategy, market research, and campaign optimization—building clear positioning,
+            strong messaging, and measurable growth plans.
+          </p>
 
-  <div class="projects">
+          <div class="cta">
+            <a class="btn primary" href="#projects">See Projects</a>
+            <a class="btn ghost" href="#about">About Me</a>
+          </div>
+        </div>
 
-    <div class="project">
-      <b>MBA Capstone</b>
-      <p style="color:var(--muted);">
-        Developed brand strategy, stakeholder presentations, and research-based recommendations to support organizational growth.
-      </p>
+        <aside class="hero-card">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;">
+            <b style="font-size:14px;">Core strengths</b>
+            <span style="color:var(--muted);font-size:12px;">(marketing-focused)</span>
+          </div>
+
+          <div class="mini-grid">
+            <div class="mini">
+              <b>Brand Strategy</b>
+              <span>Positioning, value props, messaging frameworks</span>
+            </div>
+            <div class="mini">
+              <b>Market Research</b>
+              <span>Customer & competitor insights → clear decisions</span>
+            </div>
+            <div class="mini">
+              <b>Digital Growth</b>
+              <span>Channel plans, funnel thinking, optimization loops</span>
+            </div>
+            <div class="mini">
+              <b>Analytics</b>
+              <span>KPIs, dashboards, learnings → improvements</span>
+            </div>
+          </div>
+        </aside>
+      </div>
     </div>
 
-    <div class="project">
-      <b>Markstrat Simulation</b>
-      <p style="color:var(--muted);">
-        Conducted market research and optimized marketing mix decisions to improve competitive performance and profitability.
-      </p>
-    </div>
+    <section id="about">
+      <div class="section-title">
+        <h2>About</h2>
+        <p>Short, recruiter-friendly summary</p>
+      </div>
 
-    <div class="project">
-      <b>International Marketing</b>
-      <p style="color:var(--muted);">
-        Performed cultural, economic, and competitive analysis to support international market entry strategy.
-      </p>
-    </div>
+      <div class="card">
+        <p class="muted" style="margin:0;">
+          I’m <b>Mani Maharaj</b>, an MBA marketing professional focused on practical strategy and measurable execution.
+          I enjoy turning research and performance data into plans that improve engagement, strengthen positioning,
+          and drive growth.
+        </p>
 
-    <div class="project">
-      <b>Digital Marketing Framework</b>
-      <p style="color:var(--muted);">
-        Designed KPI-driven campaign structures focused on targeting, testing, and performance optimization.
-      </p>
-    </div>
+        <div class="strip">
+          <div class="shot" style="background-image:url('https://source.unsplash.com/euNzbqwIIUI/1200x800');">
+            <b>Brainstorming</b>
+          </div>
+          <div class="shot" style="background-image:url('https://source.unsplash.com/5OpKK67eMWE/1200x800');">
+            <b>Social media</b>
+          </div>
+          <div class="shot" style="background-image:url('https://source.unsplash.com/K0aM-ztA76Q/1200x800');">
+            <b>Strategy session</b>
+          </div>
+        </div>
+        <!-- Photo sources (all free-to-use under Unsplash license):
+             - https://unsplash.com/photos/team-brainstorming-with-colorful-sticky-notes-on-glass-euNzbqwIIUI 
+             - https://unsplash.com/photos/a-sign-that-says-social-media-marketing-next-to-a-keyboard-5OpKK67eMWE 
+             - https://unsplash.com/photos/team-collaborating-around-a-whiteboard-in-a-modern-office-K0aM-ztA76Q 
+        -->
+      </div>
+    </section>
 
+    <section id="projects">
+      <div class="section-title">
+        <h2>Projects</h2>
+        <p>Highlight work that signals “marketing capability”</p>
+      </div>
+
+      <div class="grid">
+        <div class="card span6">
+          <span class="pill">
+            <svg viewBox="0 0 24 24" fill="none" class="icon" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 7h16M7 4h10M6 11h12M6 15h9M6 19h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+            Capstone
+          </span>
+          <div class="proj-title"><b>MBA Capstone — Brand & Strategy Work</b></div>
+          <p class="muted">
+            Built research-driven recommendations and helped communicate strategy clearly through structured deliverables and presentations.
+          </p>
+        </div>
+
+        <div class="card span6">
+          <span class="pill">
+            <svg viewBox="0 0 24 24" fill="none" class="icon" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 18V6m0 12h16M8 14l3-3 2 2 5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Simulation
+          </span>
+          <div class="proj-title"><b>Markstrat — Market Research & Marketing Mix</b></div>
+          <p class="muted">
+            Used market insights to guide product, pricing, and communications decisions with a performance mindset.
+          </p>
+        </div>
+
+        <div class="card span6">
+          <span class="pill">
+            <svg viewBox="0 0 24 24" fill="none" class="icon" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2v20M2 12h20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+              <path d="M4.5 7.5h15M4.5 16.5h15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+            International
+          </span>
+          <div class="proj-title"><b>International Marketing — Market Entry Analysis</b></div>
+          <p class="muted">
+            Conducted cultural, economic, and competitive analysis to support market expansion planning and go-to-market thinking.
+          </p>
+        </div>
+
+        <div class="card span6">
+          <span class="pill">
+            <svg viewBox="0 0 24 24" fill="none" class="icon" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 12h14M12 5v14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+              <path d="M7 19h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+            Digital
+          </span>
+          <div class="proj-title"><b>Digital Marketing — KPI-Driven Framework</b></div>
+          <p class="muted">
+            Structured optimization approach (KPIs, testing, reporting cadence) to improve performance over time.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="section-title">
+        <h2>Skills</h2>
+        <p>Keep it clean + marketing-specific</p>
+      </div>
+
+      <div class="grid">
+        <div class="card span4">
+          <b>Strategy</b>
+          <p class="muted" style="margin-top:8px;">Positioning • Messaging • Go-to-market</p>
+        </div>
+        <div class="card span4">
+          <b>Research</b>
+          <p class="muted" style="margin-top:8px;">Customer insights • Competitors • Segmentation</p>
+        </div>
+        <div class="card span4">
+          <b>Growth</b>
+          <p class="muted" style="margin-top:8px;">Campaign optimization • KPIs • Reporting</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-title">
+        <h2>Contact</h2>
+        <p>Maximum privacy (for now)</p>
+      </div>
+
+      <div class="card">
+        <p class="muted" style="margin:0;">
+          Professional contact information available upon request.
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="y"></span> Mani Maharaj • Marketing Portfolio
+    </footer>
   </div>
-</div>
 
-<div class="card">
-  <h2>Skills</h2>
-  <p style="color:var(--muted); line-height:1.8;">
-    Brand Strategy • Market Research • Competitive Analysis • Digital Marketing •
-    Campaign Optimization • Marketing Analytics • Positioning • KPI Reporting
-  </p>
-</div>
-
-<div class="card">
-  <h2>Contact</h2>
-  <p style="color:var(--muted);">
-    Professional contact information available upon request.
-  </p>
-</div>
-
-<footer>
-  © <span id="year"></span> Maha Raj
-</footer>
-
-</div>
-
-<script>
-document.getElementById("year").textContent = new Date().getFullYear();
-</script>
-
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
